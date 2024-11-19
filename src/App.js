@@ -6,12 +6,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Termékek: </h1>
-<<<<<<< HEAD
-
-=======
-        <Termekek />
->>>>>>> 5faa2311ca204d8502cd13684961f08cf66289be
+        
       </header>
+      <article><Termekek />
+      </article>
     </div>
   );
 }
