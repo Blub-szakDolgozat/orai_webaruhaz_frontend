@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import './App.css';
 import Termekek from './component/public/Termekek';
-import { ApiContext } from './contexts/ApiContext';
+import { ApiContext } from '../../contexts/ApiContext'; 
 
 function App() {
   const {termekLista}= useContext(ApiContext)
