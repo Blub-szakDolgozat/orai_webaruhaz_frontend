@@ -7,6 +7,7 @@ export default function Termek(props) {
         <td>{props.adat.leiras}</td>
         <td>{props.adat.ar}</td>
         <td>{props.adat.db}</td>
+        <td></td>
       </tr>
       
   )
