@@ -2,6 +2,8 @@ import React from 'react'
 import Termek from './Termek'
 
 export default function Termekek(props) {
+
+
   return (
     <div>
       <table>
