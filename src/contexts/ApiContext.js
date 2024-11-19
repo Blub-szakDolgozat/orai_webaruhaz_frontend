@@ -52,7 +52,7 @@ export const ApiProvider=({children})=>{
     };
     useEffect(()=>{
         getAdat("/api/termekek",setTermekLista)
-        getAdat("/products/categories",setKatLista)
+        getAdat("api/termekek/cim",setKatLista)
     },[]);
     return(
         <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista}}>
