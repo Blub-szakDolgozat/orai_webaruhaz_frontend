@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { useContext } from 'react'
-import { KosarContext } from '../contexts/KosarContext'
-=======
 import React from 'react'
 import { ApiContext } from '../contexts/ApiContext';
->>>>>>> 95ab1d1f5ee78e613d78e24e4fedf855d59cde8b
 
 export default function Termek(props) {
 

@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { KosarContext } from '../contexts/KosarContext'
-
-export default function Kosar() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-=======
 import React, { useContext } from "react";
 import { KosarContext } from "../contexts/KosarContext";
 
@@ -59,4 +47,3 @@ export default function Kosar() {
     </div>
   );
 }
->>>>>>> 95ab1d1f5ee78e613d78e24e4fedf855d59cde8b
