@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Kosar from '../components/Kosar';
 import { ApiContext } from '../contexts/ApiContext'; 
 import KosarProvider from '../contexts/KosarContext'; 
+import Termekek from '../component/public/Termekek';
 
 export default function App() {
   const { termekLista } = useContext(ApiContext); 
