@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { ApiContext } from '../context/ApiContext'
-import TermekAdmin from '../component/TermekAdmin'
+import Termekek from '../component/Termekek'
 
 export default function Admin() {
   const {termekLista}= useContext(ApiContext)
@@ -10,7 +10,7 @@ export default function Admin() {
       <aside className="col-lg-4">
       <h4>Termékek</h4>
       
-        <TermekAdmin adminLista={termekLista}/>
+        <Termekek adminLista={termekLista}/>
         </aside>
         </main>
     </div>
