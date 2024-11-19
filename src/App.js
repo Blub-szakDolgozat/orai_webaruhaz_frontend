@@ -11,7 +11,7 @@ function App() {
         <h1>Termékek: </h1>
       </header>
       <article>
-        <Termekek />
+        <Termekek termekLista={termekLista} />
       </article>
       <footer>
         <p>@ Horváth Nauzika, Dobszay Dorka, Albert Orsolya</p>
