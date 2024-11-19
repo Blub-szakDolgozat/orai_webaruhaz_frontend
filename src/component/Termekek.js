@@ -1,7 +1,7 @@
 import React from 'react'
 import Termek from './Termek'
 
-export default function Termekek() {
+export default function Termekek(props) {
   return (
     <div>
       <table>
@@ -10,7 +10,7 @@ export default function Termekek() {
         <th>Ár</th>
         <th>Db</th>
       {
-        props.adminLista.map((element,i)=>{
+        props.lista.map((element,i)=>{
             return <Termek adat={element} key={element.id} />
         }
         )      

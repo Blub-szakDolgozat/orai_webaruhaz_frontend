@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Termek() {
+export default function Termek(props) {
   return (
     <tr>
       <td>{props.adat.cím}</td>
