@@ -51,7 +51,7 @@ export const ApiProvider=({children})=>{
         }
     };
     useEffect(()=>{
-        getAdat("/products",setTermekLista)
+        getAdat("/api/termekek",setTermekLista)
         getAdat("/products/categories",setKatLista)
     },[]);
     return(
