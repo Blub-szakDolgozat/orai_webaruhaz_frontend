@@ -1,14 +1,17 @@
+import { useContext } from 'react';
 import './App.css';
-import Termek from './component/Termek';import Termekek from './component/Termekek';
+import Termekek from './component/Termekek';
+import { ApiContext } from './contexts/ApiContext';
 
 function App() {
+  const {termekLista}= useContext(ApiContext)
   return (
     <div className="App">
       <header className="App-header">
         <h1>Termékek: </h1>
         
       </header>
-      <article><Termekek />
+      <article><Termekek lista={termekLista}/>
       </article>
     </div>
   );
