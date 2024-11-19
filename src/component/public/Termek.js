@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ApiContext } from '../contexts/ApiContext';
+import { KosarContext } from '../../contexts/KosarContext';
 
 export default function Termek(props) {
 
