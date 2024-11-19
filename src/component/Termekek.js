@@ -5,16 +5,22 @@ export default function Termekek(props) {
   return (
     <div>
       <table>
-        <th>Cím</th>
-        <th>Leírás</th>
-        <th>Ár</th>
-        <th>Db</th>
+        <thead>
+          <tr>
+            <th>Cím</th>
+            <th>Leírás</th>
+            <th>Ár</th>
+            <th>Db</th>
+          </tr>
+        </thead>
+        <tbody>
       {
         props.lista.map((element,i)=>{
             return <Termek adat={element} key={element.id} />
         }
         )      
         }
+        </tbody>
 
     </table>
     </div>
