@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { KosarContext } from '../contexts/KosarContext'
 
 export default function Termek(props) {
     const {kosarba} =useContext(KosarContext)
