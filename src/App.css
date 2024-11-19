@@ -14,3 +14,8 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+footer{
+  background-color: #282c34;
+  margin: 0px;
+  color: white;
+}
