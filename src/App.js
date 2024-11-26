@@ -18,7 +18,7 @@ function App() {
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Public />} />
                         <Route path="admin" element={<Admin />} />
-                        <Route path="urlap" element={<Urlap />} />
+                        <Route index element={<Urlap />} />
                         <Route path="*" element={<NoPage />} />
                     </Route>
                 </Routes>
