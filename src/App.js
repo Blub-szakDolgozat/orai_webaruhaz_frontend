@@ -11,12 +11,13 @@ function App() {
       <header className="App-header">
         <h1>Termékek: </h1>
       </header>
-      <aside>
-        <Kosar />
-      </aside>
       <article>
         <Termekek termekLista={termekLista} />
       </article>
+      <aside>
+        <Kosar />
+      </aside>
+
       <footer>
         <p>@ Horváth Nauzika, Dobszay Dorka, Albert Orsolya</p>
       </footer>

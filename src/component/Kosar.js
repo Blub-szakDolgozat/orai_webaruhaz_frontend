@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
-// Kosár komponens, ami terméklistát vár a props-ban
 export default function Kosar(props) {
-  // Ellenőrizzük, hogy a termekLista létezik és egy tömb
+
   const termekLista = props.termekLista || []; // Ha nincs adat, akkor üres tömb
 
   return (
