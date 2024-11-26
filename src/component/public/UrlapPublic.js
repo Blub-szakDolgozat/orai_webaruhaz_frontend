@@ -6,10 +6,10 @@ export default function UrlapPublic(){
     const {postAdat} = useContext(ApiContext);
     // Az űrlapadatokhoz zartozik egy saját state, itt fogjuk tárolni az űrlapmező adatait.
     const [adat, setAdat]=useState({
-        title: "Ez a termék neve",
-        price: '',
+        cim: "Ez a termék neve",
+        ar: '',
         category: '',
-        description: '',
+        leiras: '',
         image:''
     })
 
@@ -32,18 +32,18 @@ export default function UrlapPublic(){
         <div>
         <form onSubmit={elkuld}>
             <div className="mb-3">
-                <label htmlFor="title" className="form-label">A termék neve</label>
-                <input type="text" className="form-control" value={adat.title} onChange={valtoztatasKezeles} id="title" pattern='' aria-describedby="titleHelp"></input>
+                <label htmlFor="cim" className="form-label">A termék neve</label>
+                <input type="text" className="form-control" value={adat.cim} onChange={valtoztatasKezeles} id="cim" pattern='' aria-describedby="cimHelp"></input>
             </div>
 
             <div className="mb-3">
-                <label htmlFor="price" className="form-label">A termék ára</label>
-                <input type="number" min='1000' max='1000000' className="form-control" value={adat.price} onChange={valtoztatasKezeles} id="price" aria-describedby="priceHelp"></input>
+                <label htmlFor="ar" className="form-label">A termék ára</label>
+                <input type="number" min='1000' max='1000000' className="form-control" value={adat.price} onChange={valtoztatasKezeles} id="ar" aria-describedby="arHelp"></input>
             </div>
 
             <div className="mb-3">
-                <label htmlFor="description" className="form-label">A termék leírása</label>
-                <input type="text" className="form-control" value={adat.description} onChange={valtoztatasKezeles} id="description" aria-describedby="descriptionHelp"></input>
+                <label htmlFor="leiras" className="form-label">A termék leírása</label>
+                <input type="text" className="form-control" value={adat.description} onChange={valtoztatasKezeles} id="leiras" aria-describedby="leirasHelp"></input>
             </div>
 
             <button type="submit" className="btn btn-primary">Submit</button>
