@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import KosarProvider from "../contexts/KosarContext";
 import Termekek from "../component/admin/Termekek";
 import { ApiContext } from "../contexts/ApiContext";
-import Kosar from "../component/Kosar";
+import Kosar from "../component/public/Kosar";
+
 
 export default function Public() {
   const { termekLista } = useContext(ApiContext);

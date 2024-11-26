@@ -1,8 +1,6 @@
 import { useContext } from 'react';
 import './App.css';
-import Termekek from './component/admin/Termekek';
 import { ApiContext } from './contexts/ApiContext'; 
-import Kosar from './component/Kosar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Admin from './pages/Admin';
