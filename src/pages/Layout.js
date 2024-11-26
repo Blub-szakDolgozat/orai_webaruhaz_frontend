@@ -7,7 +7,7 @@ const Layout = () => {
          <header className="App-header">
         <h1>Termékek: </h1>
       </header>
-      <Nav activeKey="/" >
+      <Nav activeKey="/" className="navbar-light bg-warning">
         <Nav.Item>
           <Nav.Link href="/">Diszhalak</Nav.Link>
         </Nav.Item>
