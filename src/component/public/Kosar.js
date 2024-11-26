@@ -11,7 +11,7 @@ export default function Kosar(props) {
       {termekLista.length > 0 ? (
         <Row>
           {termekLista.map((termek) => (
-            <Col key={termek.id} xs={12} md={6} lg={4} className="mb-3">
+            <Col key={termek.id} xs={12} md={6} lg={4} className="mb-3">{}
               <Card className="h-100 shadow-sm">
                 <Card.Img
                   variant="top"
