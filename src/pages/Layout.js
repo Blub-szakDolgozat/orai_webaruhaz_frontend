@@ -7,7 +7,7 @@ const Layout = () => {
          <header className="App-header">
         <h1>Termékek: </h1>
       </header>
-      <Nav activeKey="/" onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+      <Nav variant="underline" activeKey="/" >
         <Nav.Item>
           <Nav.Link href="/">Diszhalak</Nav.Link>
         </Nav.Item>
