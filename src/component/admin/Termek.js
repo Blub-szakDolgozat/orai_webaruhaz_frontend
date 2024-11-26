@@ -25,7 +25,12 @@ export default function Termek(props) {
         <td>{props.adat.db}</td>
         <td>
           <Button as="a" variant="primary" onClick={()=>kattintas()}>
-            Kosárba
+            Törlés
+          </Button>
+        </td>
+        <td>
+          <Button as="a" variant="primary" onClick={()=>kattintas()}>
+            Szerkesztés
           </Button>
         </td>
       </tr>
