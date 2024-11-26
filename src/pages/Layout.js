@@ -1,3 +1,4 @@
+import { Nav } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 
 const Layout = () => {
@@ -6,19 +7,15 @@ const Layout = () => {
          <header className="App-header">
         <h1>Termékek: </h1>
       </header>
-            <nav>
-                <ul>
-                    <li>
-            {/* A publikus tartalom linkje */}
-                        <Link to="/">Diszhalak</Link>
-                    </li>
-                    <li>
-            {/* Az admin oldal linkjetartalom linkje */}
-                        <Link to="/admin">Admin felület</Link>
-                    </li>
-                </ul>
-            </nav>
-            <article>
+      <Nav activeKey="/" onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+        <Nav.Item>
+          <Nav.Link href="/">Diszhalak</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/admin">Admin</Nav.Link>
+        </Nav.Item>
+      </Nav>
+        <article>
             {/* Ide kerül majd az útvonalak/linkek által meghatározott tartalom */}
                 <Outlet />
             </article>
