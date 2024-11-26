@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { ApiContext } from "../../contexts/ApiContext";
+import { Button, Container, Form } from "react-bootstrap";
 
 
 export default function UrlapPublic(){
@@ -28,26 +29,62 @@ export default function UrlapPublic(){
         postAdat("/products", adat)
     }
 
-    return(
-        <div>
-        <form onSubmit={elkuld}>
-            <div className="mb-3">
-                <label htmlFor="cim" className="form-label">A termék neve</label>
-                <input type="text" className="form-control" value={adat.cim} onChange={valtoztatasKezeles} id="cim" pattern='' aria-describedby="cimHelp"></input>
-            </div>
+    return (
+        <div className="container">
+          <h2 className="my-4 text-center">Új Termék Felvétele</h2>
+          <Form onSubmit={elkuld}>
+            
+            <Form.Group className="mb-3" controlId="cim">
+              <Form.Label>A termék neve</Form.Label>
+              <Form.Control
+                type="text"
+                value={adat.cim}
+                onChange={valtoztatasKezeles}
+                placeholder="Adja meg a termék nevét"
+              />
+            </Form.Group>
+    
+            <Form.Group className="mb-3" controlId="ar">
+              <Form.Label>A termék ára</Form.Label>
+              <Form.Control
+                type="number"
+                min="1000"
+                max="1000000"
+                value={adat.ar}
+                onChange={valtoztatasKezeles}
+                placeholder="Adja meg a termék árát"
+              />
+            </Form.Group>
+    
+            <Form.Group className="mb-3" controlId="leiras">
+              <Form.Label>A termék leírása</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                value={adat.leiras}
+                onChange={valtoztatasKezeles}
+                placeholder="Írja le a terméket"
+              />
+            </Form.Group>
+    
+            <Form.Group className="mb-3" controlId="image">
+              <Form.Label>A termék képe (URL)</Form.Label>
+              <Form.Control
+                type="text"
+                value={adat.image}
+                onChange={valtoztatasKezeles}
+                placeholder="Kép URL"
+              />
+            </Form.Group>
+    
+            <div className="d-flex justify-content-center">
+  <Button variant="primary" type="submit" size="sm">
+    Termék hozzáadása
+  </Button>
+</div>
 
-            <div className="mb-3">
-                <label htmlFor="ar" className="form-label">A termék ára</label>
-                <input type="number" min='1000' max='1000000' className="form-control" value={adat.price} onChange={valtoztatasKezeles} id="ar" aria-describedby="arHelp"></input>
-            </div>
-
-            <div className="mb-3">
-                <label htmlFor="leiras" className="form-label">A termék leírása</label>
-                <input type="text" className="form-control" value={adat.description} onChange={valtoztatasKezeles} id="leiras" aria-describedby="leirasHelp"></input>
-            </div>
-
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
-    </div>
-    )
+          </Form>
+        </div>
+      );
+    
 }
