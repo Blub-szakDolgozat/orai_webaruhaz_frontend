@@ -15,7 +15,7 @@ const Layout = () => {
           <Nav.Link href="/admin">Admin</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/">Urlap</Nav.Link>
+          <Nav.Link href="/urlap">Urlap</Nav.Link>
         </Nav.Item>
       </Nav>
         <article>
