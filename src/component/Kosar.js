@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
-import { Container, Row, Col, Card} from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
+// Kosár komponens, ami terméklistát vár a props-ban
 export default function Kosar(props) {
+  // Ellenőrizzük, hogy a termekLista létezik és egy tömb
+  const termekLista = props.termekLista || []; // Ha nincs adat, akkor üres tömb
 
   return (
     <Container className="py-4">
       <h2 className="text-center mb-4">Kosár</h2>
+      {termekLista.length > 0 ? (
         <Row>
-          { props.termekLista.map((termek) => (
+          {termekLista.map((termek) => (
             <Col key={termek.id} xs={12} md={6} lg={4} className="mb-3">
               <Card className="h-100 shadow-sm">
                 <Card.Img
@@ -19,14 +23,18 @@ export default function Kosar(props) {
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{termek.title}</Card.Title>
                   <Card.Text>Ár: {termek.price} Ft</Card.Text>
-                  <Card.Text>Darabszám: {termek.darabszam}</Card.Text> 
+                  <Card.Text>Darabszám: {termek.darabszam}</Card.Text>
                   <div className="d-flex justify-content-between">
+                    {/* Kosár kezelés gombok */}
                   </div>
                 </Card.Body>
               </Card>
             </Col>
           ))}
         </Row>
+      ) : (
+        <p className="text-center">A kosár üres.</p>
+      )}
     </Container>
   );
 }
