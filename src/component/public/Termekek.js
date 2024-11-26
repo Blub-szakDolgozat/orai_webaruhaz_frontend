@@ -18,10 +18,10 @@ export default function Termekek(props) {
         </thead>
         <tbody>
       {
-        props.termekLista.map((element,i)=>{
+       props.termekLista.map((element,i)=>{
             return <Termek adat={element} key={element.id} />
         }
-        )      
+        )     
         }
         </tbody>
 

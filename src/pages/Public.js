@@ -1,24 +1,23 @@
-import React, { useContext } from 'react';
-import Kosar from '../components/Kosar';
-import { ApiContext } from '../contexts/ApiContext'; 
-import KosarProvider from '../contexts/KosarContext'; 
-import Termekek from '../component/public/Termekek';
+import React, { useContext } from "react";
+import KosarProvider from "../contexts/KosarContext";
+import Termekek from "../component/public/Termekek";
+import { ApiContext } from "../contexts/ApiContext";
+import Kosar from "../component/Kosar";
 
-export default function App() {
-  const { termekLista } = useContext(ApiContext); 
+export default function Public() {
+  const { termekLista } = useContext(ApiContext);
 
   return (
-    <KosarProvider>
-      <main className="row">
-        <aside className="col-lg-4">
-          <h4>Kosár</h4>
+    <main className="row">
+      <aside className="col-lg-4">
+        <h4>Kosár</h4>
           <Kosar />
-        </aside>
-        <article className="col-lg-8">
-          <h4>Vasárlótér</h4>
-          <Termekek termekLista={termekLista} />
-        </article>
-      </main>
-    </KosarProvider>
+
+      </aside>
+      <article className="col-lg-8">
+        <h4>Vasárlótér</h4>
+        <Termekek termekLista={termekLista} />
+      </article>
+    </main>
   );
 }
