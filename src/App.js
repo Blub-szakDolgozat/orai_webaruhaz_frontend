@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import './App.css';
 import Termekek from './component/public/Termekek';
 import { ApiContext } from './contexts/ApiContext'; 
+import Kosar from './component/Kosar';
 
 function App() {
   const {termekLista}= useContext(ApiContext)
@@ -10,6 +11,9 @@ function App() {
       <header className="App-header">
         <h1>Termékek: </h1>
       </header>
+      <aside>
+        <Kosar />
+      </aside>
       <article>
         <Termekek termekLista={termekLista} />
       </article>

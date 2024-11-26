@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { ApiContext } from '../../contexts/ApiContext';
 import { KosarContext } from '../../contexts/KosarContext';
+import { Button } from 'react-bootstrap';
 
 export default function Termek(props) {
 
@@ -22,9 +23,11 @@ export default function Termek(props) {
         <td>{props.adat.leiras}</td>
         <td>{props.adat.ar}</td>
         <td>{props.adat.db}</td>
-        <td><button type="button" class="btn btn-primary" onClick={()=>kattintas()}>
-          Kosárba
-        </button></td>
+        <td>
+          <Button as="a" variant="primary" onClick={()=>kattintas()}>
+            Kosárba
+          </Button>
+        </td>
       </tr>
       
   )
