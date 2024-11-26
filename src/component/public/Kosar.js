@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 export default function Kosar(props) {
 
-  const termekLista = props.termekLista || []; // Ha nincs adat, akkor üres tömb
+  const termekLista = props.termekLista || [];
 
   return (
     <Container className="py-4">
@@ -24,7 +24,7 @@ export default function Kosar(props) {
                   <Card.Text>Ár: {termek.price} Ft</Card.Text>
                   <Card.Text>Darabszám: {termek.darabszam}</Card.Text>
                   <div className="d-flex justify-content-between">
-                    {/* Kosár kezelés gombok */}
+                    {}
                   </div>
                 </Card.Body>
               </Card>
