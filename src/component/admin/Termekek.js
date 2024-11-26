@@ -1,9 +1,10 @@
 import React from 'react';
 import Termek from './Termek';
+import { Container } from 'react-bootstrap';
 
 export default function Termekek(props) {
   return (
-    <div className="container mt-4">
+    <Container className="mt-4">
       <h2 className="text-center mb-4">Termékek</h2>
       <table className="table table-striped table-bordered">
         <thead>
@@ -22,6 +23,6 @@ export default function Termekek(props) {
           })}
         </tbody>
       </table>
-    </div>
+    </Container>
   );
 }
