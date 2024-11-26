@@ -1,31 +1,27 @@
-import React from 'react'
-import Termek from './Termek'
-
+import React from 'react';
+import Termek from './Termek';
 
 export default function Termekek(props) {
-
-
   return (
-    <div>
-      <table>
+    <div className="container mt-4">
+      <h2 className="text-center mb-4">Termékek</h2>
+      <table className="table table-striped table-bordered">
         <thead>
           <tr>
             <th>Cím</th>
             <th>Leírás</th>
             <th>Ár</th>
             <th>Db</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-      {
-       props.termekLista.map((element,i)=>{
-            return <Termek adat={element} key={element.id} />
-        }
-        )     
-        }
+          {props.termekLista.map((element) => {
+            return <Termek adat={element} key={element.id} />;
+          })}
         </tbody>
-
-    </table>
+      </table>
     </div>
-  )
+  );
 }
