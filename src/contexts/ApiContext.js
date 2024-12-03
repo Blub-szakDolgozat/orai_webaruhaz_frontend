@@ -48,7 +48,7 @@ export const ApiProvider=({children})=>{
        const postAdat = async (endpoint, data) => {
         try {
             const response = await myAxios.post(endpoint, data);
-            console.log("Sikeres POST:", response.data);
+            console.log("Feltöltve", response.data);
             return response.data;
         } catch (error) {
             console.error("POST hiba:", error);
