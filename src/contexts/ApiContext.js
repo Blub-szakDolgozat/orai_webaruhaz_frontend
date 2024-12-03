@@ -18,7 +18,7 @@ export const ApiProvider=({children})=>{
 
         }
     };
-    const deleteAdat = async (vegpont,id)=>{
+    /*const deleteAdat = async (vegpont,id)=>{
         try{
             const response = await myAxios.delete(vegpont+"/"+id);
             console.log(response)
@@ -28,7 +28,7 @@ export const ApiProvider=({children})=>{
         }finally{
 
         }
-    };
+    }; /// Nem müködik*/
     const putAdat = async (vegpont,id)=>{
         try{
             const response = await myAxios.put(vegpont+"/"+id);
@@ -54,7 +54,7 @@ export const ApiProvider=({children})=>{
         getAdat("/api/termekek",setTermekLista)
     },[]);
     return(
-        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista}}>
+        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista, setKatLista}}>
             {children}
         </ApiContext.Provider>
     );
