@@ -10,7 +10,7 @@ export default function Public() {
   return (
     <main className="container">
       <Row className="my-4">
-        {/* Kosár */}
+        {}
         <Col xs={12} lg={4} className="mb-4">
           <h4>Kosár</h4>
           <Kosar />
