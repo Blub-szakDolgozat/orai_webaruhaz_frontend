@@ -18,9 +18,8 @@ export default function Kartya(props) {
           <Card.Text>{props.adat.leiras}</Card.Text>
           <Card.Text>Ár: {props.adat.ar} Ft</Card.Text>
           <Card.Text>
-            Elérhető: {props.adat.db > 0 ? props.adat.db : "0"} db // Ellenörzi, hogy a kosár nagyobb-e mint nulla, ha nem akkor kiírja hogy 0
-
-          </Card.Text>
+            Elérhető: {props.adat.db > 0 ? props.adat.db : "0"} db  
+          </Card.Text> 
           <Button
             variant="primary"
             onClick={kattintas} //	Meghívódik a kosarba függvény a KosarContext-ből.
@@ -28,11 +27,13 @@ export default function Kartya(props) {
           >
             Kosárba
           </Button>
+          
         </Card.Body>
       </Card>
     </Col>
   );
 }
+//Elérhető: {props.adat.db > 0 ? props.adat.db : "0"} db  // Ellenörzi, hogy a kosár nagyobb-e mint nulla, ha nem akkor kiírja hogy 0
  
 /*________________________________________
 Egymással való kapcsolat
