@@ -66,6 +66,8 @@ export default function UrlapPublic(){
                 placeholder="Írja le a terméket"
               />
             </Form.Group>
+
+          
     
 
     
