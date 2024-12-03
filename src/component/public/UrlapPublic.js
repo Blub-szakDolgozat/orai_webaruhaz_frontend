@@ -66,6 +66,8 @@ export default function UrlapPublic(){
                 placeholder="Írja le a terméket"
               />
             </Form.Group>
+
+          
     
             <Form.Group className="mb-3" controlId="image">
               <Form.Label>A termék képe (URL)</Form.Label>
