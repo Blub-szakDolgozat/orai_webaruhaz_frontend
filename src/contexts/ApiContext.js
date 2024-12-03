@@ -44,16 +44,18 @@ export const ApiProvider=({children})=>{
             console.error("Hiba történt az adatok módosításakor:", err);
         }
     };
-    const postAdat = async (vegpont, adat)=>{
-        try{
-            const response = await myAxios.post(vegpont, adat);
-            console.log(response)
-        }catch(err){
-            console.log("Hiba történt az adatok küldésekor.")
-        }finally{
 
+       const postAdat = async (endpoint, data) => {
+        try {
+            const response = await myAxios.post(endpoint, data);
+            console.log("Sikeres POST:", response.data);
+            return response.data;
+        } catch (error) {
+            console.error("POST hiba:", error);
+            throw error;
         }
     };
+
     useEffect(()=>{
         getAdat("/api/termekek",setTermekLista)
     },[]);
