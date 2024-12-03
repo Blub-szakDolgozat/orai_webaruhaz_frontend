@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import './App.css';
-import { ApiContext } from './contexts/ApiContext'; 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Admin from './pages/Admin';
@@ -9,7 +7,7 @@ import NoPage from './pages/NoPAge';
 import Urlap from './pages/Urlap';
 
 function App() {
-  const {termekLista}= useContext(ApiContext)
+
   return (
     <div className="App">
      
