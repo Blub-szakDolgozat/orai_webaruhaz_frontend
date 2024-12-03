@@ -19,12 +19,15 @@ export default function Termek(props) {
   // Szerkesztés funkció
   const [szerkesztes, setSzerkesztes] = useState(false);
   const [szerkesztTermek, setSzerkesztTermek] = useState(props.adat);
+  const { putAdat } = useContext(ApiContext);
 
   const szerkesztGomb = () => {
     setSzerkesztes(true);
   };
 
   const szerkesztesMentese = () => {
+    putAdat("/api/termekek", szerkesztTermek.id, szerkesztTermek);
+  
     const szerkesztettLista = termekLista.map(item =>
       item.id === szerkesztTermek.id ? szerkesztTermek : item
     );
