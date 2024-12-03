@@ -28,7 +28,7 @@ export default function Kartya(props) {
           <Card.Text>{props.adat.leiras}</Card.Text>
           <Card.Text>Ár: {props.adat.ar} Ft</Card.Text>
           <Card.Text>
-            Elérhető: {props.adat.db > 0 ? props.adat.db : "Nincs készleten"} db
+            Elérhető: {props.adat.db > 0 ? props.adat.db : "0"} db
           </Card.Text>
           <Button
             variant="primary"
