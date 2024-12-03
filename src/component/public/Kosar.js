@@ -10,8 +10,8 @@ export default function Kosar() {
       <h2 className="text-center mb-4">Kosár</h2>
       {kosarlista.length > 0 ? (
         <Row>
-          {kosarlista.map((termek) => (
-              <Card className="h-100 shadow-sm">
+          {kosarlista.map((termek, index) => (
+              <Card className="h-100 shadow-sm" key={termek.id || index} xs={12} md={6} lg={4}>
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{termek.cim}</Card.Title>
                   <Card.Text>{termek.leiras}</Card.Text>
