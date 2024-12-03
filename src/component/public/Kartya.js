@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
-import { Card, Button, Row, Col } from 'react-bootstrap';
-import { KosarContext } from '../../contexts/KosarContext';
+import React, { useContext } from "react";
+import { Card, Button, Col } from "react-bootstrap";
+import { KosarContext } from "../../contexts/KosarContext";
 
 export default function Kartya(props) {
-
   const { kosarba } = useContext(KosarContext);
 
   function kattintas() {
-    kosarba(props.adat);
+    kosarba(props.adat); // Az adat tartalmazza a `db` értéket
   }
 
   return (
@@ -17,18 +16,27 @@ export default function Kartya(props) {
           variant="top"
           src={props.adat.image}
           alt={props.adat.cim}
-          style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "8px" }}
+          style={{
+            width: "100%",
+            height: "200px",
+            objectFit: "cover",
+            borderRadius: "8px",
+          }}
         />
         <Card.Body>
           <Card.Title>{props.adat.cim}</Card.Title>
           <Card.Text>{props.adat.leiras}</Card.Text>
           <Card.Text>Ár: {props.adat.ar} Ft</Card.Text>
-          <Card.Text>Darabszám: {props.adat.db}</Card.Text>
-          <div className="d-flex justify-content-between">
-            <Button variant="primary" onClick={kattintas}>
-              Kosárba
-            </Button>
-          </div>
+          <Card.Text>
+            Elérhető: {props.adat.db > 0 ? props.adat.db : "Nincs készleten"} db
+          </Card.Text>
+          <Button
+            variant="primary"
+            onClick={kattintas}
+            disabled={props.adat.db <= 0} // Gomb letiltása, ha elfogyott a készlet
+          >
+            Kosárba
+          </Button>
         </Card.Body>
       </Card>
     </Col>
