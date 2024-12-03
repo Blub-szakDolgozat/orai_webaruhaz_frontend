@@ -29,15 +29,19 @@ export const ApiProvider=({children})=>{
 
         }
     }; /// Nem müködik*/
-    const putAdat = async (vegpont,id)=>{
-        try{
-            const response = await myAxios.put(vegpont+"/"+id);
-            console.log(response)
-
-        }catch(err){
-            console.log("Hiba történt az adatok módosításakor.")
-        }finally{
-
+    const putAdat = async (vegpont, id, adat) => {
+        try {
+            const response = await myAxios.put(`${vegpont}/${id}`, adat);
+            console.log("Sikeres módosítás:", response.data);
+    
+            // Frissítjük a termékek listáját a válasz alapján
+            setTermekLista((prevTermekLista) =>
+                prevTermekLista.map((item) =>
+                    item.id === id ? { ...item, ...adat } : item
+                )
+            );
+        } catch (err) {
+            console.error("Hiba történt az adatok módosításakor:", err);
         }
     };
     const postAdat = async (vegpont, adat)=>{

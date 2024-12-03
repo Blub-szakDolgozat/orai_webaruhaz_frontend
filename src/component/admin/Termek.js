@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { ApiContext } from '../../contexts/ApiContext';
+import { putAdat } from '../../contexts/ApiContext';
 import { Button } from 'react-bootstrap';
 
 export default function Termek(props) {
@@ -21,13 +22,15 @@ export default function Termek(props) {
     setSzerkesztes(true);
   };
 
-  const szerkesztesMentese = () => {
-    const szerkesztettLista = termekLista.map(item =>
-      item.id === szerkesztTermek.id ? szerkesztTermek : item
-    );
-    setTermekLista(szerkesztettLista);
-    setSzerkesztes(false);
-  };
+  const szerkesztesMentese = async () => {
+    try {
+        await putAdat("/api/termekek", szerkesztTermek.id, szerkesztTermek);
+        setSzerkesztes(false);
+    } catch (error) {
+        console.error("Hiba történt a termék módosításakor:", error);
+    }
+};
+
 
   const szerkesztesValtoztatasa = (elem) => {
     const { name, value } = elem.target;
