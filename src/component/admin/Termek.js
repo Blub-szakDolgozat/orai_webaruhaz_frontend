@@ -21,15 +21,13 @@ export default function Termek(props) {
     setSzerkesztes(true);
   };
 
-  const szerkesztesMentese = async () => {
-    try {
-        await putAdat("/api/termekek", szerkesztTermek.id, szerkesztTermek);
-        setSzerkesztes(false);
-    } catch (error) {
-        console.error("Hiba történt a termék módosításakor:", error);
-    }
-};
-
+  const szerkesztesMentese = () => {
+    const szerkesztettLista = termekLista.map(item =>
+      item.id === szerkesztTermek.id ? szerkesztTermek : item
+    );
+    setTermekLista(szerkesztettLista);
+    setSzerkesztes(false);
+  };
 
   const szerkesztesValtoztatasa = (elem) => {
     const { name, value } = elem.target;
