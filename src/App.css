@@ -19,3 +19,15 @@ footer{
   margin: 0px;
   color: white;
 }
+
+.nav-link-black {
+  color: #555; 
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s, font-weight 0.3s; 
+}
+
+.nav-link-black:hover,  
+.nav-link-black.active {
+  color: black;
+}
