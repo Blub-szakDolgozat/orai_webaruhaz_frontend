@@ -26,7 +26,7 @@ export default function UrlapPublic(){
         // Összegyűjtük az adatokat az űrlap mezőről és összeállítunk egy objektumot. Ezt az objektumot küldük el a post kéréssel a végpontra.
         console.log("Elküld")
         // Itt kellene validálni az adatokat és csak akkor elküldeni, ha formailag helyes:
-        postAdat("/termekAdd", adat)
+        postAdat('/api/termekAdd', adat);
     }
 
     return (
