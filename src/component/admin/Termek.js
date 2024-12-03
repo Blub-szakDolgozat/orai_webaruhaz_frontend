@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 export default function Termek(props) {
 
-  const { termekLista, setTermekLista, putAdat } = useContext(ApiContext);
+  const { termekLista, setTermekLista, putAdat, deleteAdat } = useContext(ApiContext);
 
   // Törlés funkció
   const torles = async () => {
