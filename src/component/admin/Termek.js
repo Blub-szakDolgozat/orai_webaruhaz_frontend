@@ -5,13 +5,9 @@ import { Button } from 'react-bootstrap';
 export default function Termek(props) {
   const { termekLista, setTermekLista, putAdat, deleteAdat } = useContext(ApiContext);
 
-  // Törlés funkció
   const torles = async (id) => {
     try {
-      // Meghívjuk a deleteAdat függvényt az id-vel
       await deleteAdat('/api/termekTorol', id);
-      
-      // A termekLista frissítése a törlés után
       const frissTermekLista = termekLista.filter(item => item.id !== id);
       setTermekLista(frissTermekLista);
     } catch (error) {
@@ -19,7 +15,6 @@ export default function Termek(props) {
     }
   };
 
-  // Szerkesztés funkció
   const [szerkesztes, setSzerkesztes] = useState(false);
   const [szerkesztTermek, setSzerkesztTermek] = useState(props.adat);
 
