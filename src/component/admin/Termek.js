@@ -3,15 +3,21 @@ import { ApiContext } from '../../contexts/ApiContext';
 import { Button } from 'react-bootstrap';
 
 export default function Termek(props) {
-
   const { termekLista, setTermekLista, putAdat, deleteAdat } = useContext(ApiContext);
 
   // Törlés funkció
-  const torles = async () => {
-    deleteAdat('/api/termekTorol/{id}');
-};
-
-
+  const torles = async (id) => {
+    try {
+      // Meghívjuk a deleteAdat függvényt az id-vel
+      await deleteAdat('/api/termekTorol', id);
+      
+      // A termekLista frissítése a törlés után
+      const frissTermekLista = termekLista.filter(item => item.id !== id);
+      setTermekLista(frissTermekLista);
+    } catch (error) {
+      console.error("Hiba történt a törlés során:", error);
+    }
+  };
 
   // Szerkesztés funkció
   const [szerkesztes, setSzerkesztes] = useState(false);
@@ -23,18 +29,17 @@ export default function Termek(props) {
 
   const szerkesztesMentese = async () => {
     try {
-        await putAdat('/api/termekek', szerkesztTermek.id, szerkesztTermek);
-        const szerkesztettLista = termekLista.map(item =>
-            item.id === szerkesztTermek.id ? szerkesztTermek : item
-        );
-        setTermekLista(szerkesztettLista);
-        setSzerkesztes(false);
+      await putAdat('/api/termekek', szerkesztTermek.id, szerkesztTermek);
+      const szerkesztettLista = termekLista.map(item =>
+        item.id === szerkesztTermek.id ? szerkesztTermek : item
+      );
+      setTermekLista(szerkesztettLista);
+      setSzerkesztes(false);
     } catch (error) {
-        console.error("Hiba történt a szerkesztett termék mentésekor:", error);
-        alert("Hiba történt a mentés során!");
+      console.error("Hiba történt a szerkesztett termék mentésekor:", error);
+      alert("Hiba történt a mentés során!");
     }
-};
-
+  };
 
   const szerkesztesValtoztatasa = (elem) => {
     const { name, value } = elem.target;
@@ -43,7 +48,7 @@ export default function Termek(props) {
       return;
     }
     if (name === "ar" && value < 0) {
-      return; 
+      return;
     }
 
     setSzerkesztTermek(elozo => ({
@@ -52,47 +57,58 @@ export default function Termek(props) {
     }));
   };
 
-
   return (
     <tr>
-        <td>
-        {szerkesztes ? (<input
+      <td>
+        {szerkesztes ? (
+          <input
             type="text"
             name="cim"
             value={szerkesztTermek.cim}
-            onChange={szerkesztesValtoztatasa}/>) : (
+            onChange={szerkesztesValtoztatasa}
+          />
+        ) : (
           props.adat.cim
         )}
       </td>
       <td>
-        {szerkesztes ? (<input
+        {szerkesztes ? (
+          <input
             type="text"
             name="leiras"
             value={szerkesztTermek.leiras}
-            onChange={szerkesztesValtoztatasa}/>) : (
+            onChange={szerkesztesValtoztatasa}
+          />
+        ) : (
           props.adat.leiras
         )}
       </td>
       <td>
-        {szerkesztes ? (<input
+        {szerkesztes ? (
+          <input
             type="number"
             name="ar"
             value={szerkesztTermek.ar}
-            onChange={szerkesztesValtoztatasa}/>) : (
+            onChange={szerkesztesValtoztatasa}
+          />
+        ) : (
           `${props.adat.ar} Ft`
         )}
       </td>
       <td>
-        {szerkesztes ? (<input
+        {szerkesztes ? (
+          <input
             type="number"
             name="db"
             value={szerkesztTermek.db}
-            onChange={szerkesztesValtoztatasa}/>) : (
+            onChange={szerkesztesValtoztatasa}
+          />
+        ) : (
           props.adat.db
         )}
       </td>
       <td>
-        <Button variant="danger" onClick={torles}>Törlés</Button>
+        <Button variant="danger" onClick={() => torles(props.adat.id)}>Törlés</Button>
       </td>
       <td>
         {szerkesztes ? (
