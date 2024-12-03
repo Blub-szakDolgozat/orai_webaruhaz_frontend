@@ -1,31 +1,22 @@
 import React, { useContext } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { KosarContext } from "../../contexts/KosarContext";
 
-export default function Kosar(props) {
-
-  const termekLista = props.termekLista || [];
+export default function Kosar() {
+  const { kosarlista } = useContext(KosarContext);
 
   return (
     <Container className="py-4">
       <h2 className="text-center mb-4">Kosár</h2>
-      {termekLista.length > 0 ? (
+      {kosarlista.length > 0 ? (
         <Row>
-          {termekLista.map((termek) => (
-            <Col key={termek.id} xs={12} md={6} lg={4} className="mb-3">{}
+          {kosarlista.map((termek) => (
+            <Col key={termek.id} xs={12} md={6} lg={4} className="mb-3">
               <Card className="h-100 shadow-sm">
-                <Card.Img
-                  variant="top"
-                  src={termek.image}
-                  alt={termek.title}
-                  style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-                />
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{termek.title}</Card.Title>
                   <Card.Text>Ár: {termek.price} Ft</Card.Text>
-                  <Card.Text>Darabszám: {termek.darabszam}</Card.Text>
-                  <div className="d-flex justify-content-between">
-                    {}
-                  </div>
+                  <Card.Text>Darabszám: {termek.db}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
