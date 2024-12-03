@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { ApiContext } from '../../contexts/ApiContext';
-import { putAdat } from '../../contexts/ApiContext';
 import { Button } from 'react-bootstrap';
 
 export default function Termek(props) {

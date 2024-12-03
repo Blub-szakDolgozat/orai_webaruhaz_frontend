@@ -58,7 +58,7 @@ export const ApiProvider=({children})=>{
         getAdat("/api/termekek",setTermekLista)
     },[]);
     return(
-        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista, setKatLista}}>
+        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista, setKatLista,putAdat }}>
             {children}
         </ApiContext.Provider>
     );
