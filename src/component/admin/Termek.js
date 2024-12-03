@@ -8,14 +8,7 @@ export default function Termek(props) {
 
   // Törlés funkció
   const torles = async () => {
-    try {
-        await deleteAdat(`api/termekTorol/${props.adat.id}`);
-        const listaFrissitese = termekLista.filter(item => item.id !== props.adat.id);
-        setTermekLista(listaFrissitese);
-    } catch (error) {
-        console.error("Hiba a törlés során:", error);
-        alert("Nem sikerült törölni a terméket.");
-    }
+    deleteAdat('/api/termekTorol/{id}');
 };
 
 
