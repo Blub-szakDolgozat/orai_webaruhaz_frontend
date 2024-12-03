@@ -10,7 +10,7 @@ export default function Kartyak(props) {
       <Row>
         {props.termekLista.map((element) => ( //props.termekLista A termékek adatait tartalmazó tömb.///A props.termekLista.map() segítségével minden egyes termékről létrehozunk egy Kartya komponenst.
 
-          <Kartya adat={element} key={element.id} />
+          <Kartya adat={element} key={element.id} /> //React komponens hívása, amely egyesével átadja az adatokat egy konkrét termékkártyának
         ))}
       </Row>
     </div>

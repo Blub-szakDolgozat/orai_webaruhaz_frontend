@@ -13,7 +13,10 @@ export const KosarProvider = ({ children }) => { //Ez egy komponens, amely a Kos
       }
     
       setkosarlista((prevKosarlista) => {
-        const existingItem = prevKosarlista.find((elem) => elem.id === adat.id);
+        const existingItem = prevKosarlista.find((elem) => elem.id === adat.id); //setkosarlista:Ez a React useState által generált függvény. Új értéket állít be a kosarlista állapot számára.
+       // Az aktuális értéket (prevKosarlista) egy callback függvényen keresztül érjük el.
+        //prevKosarlista.find():A find() függvény végigmegy a prevKosarlista (azaz az aktuális kosárlista) elemein, hogy megtalálja azt az elemet, amelynek az id értéke megegyezik az adat.id-vel.Cél: Ellenőrizni, hogy a kosárban már szerepel-e az adott termék.
+        ///const existingItem:Ez a változó tárolja a kosárban található termék objektumát, ha van ilyen. Ha a termék már a kosárban van, akkor a find() visszaadja az objektumot, különben undefined lesz.
     
         if (existingItem) {//prevKosarlista megvizsgálja, hogy a kosárban már szerepel-e a hozzáadni kívánt termék 
           return prevKosarlista.map((elem) => 

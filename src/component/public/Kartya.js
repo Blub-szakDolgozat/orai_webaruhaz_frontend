@@ -18,7 +18,7 @@ export default function Kartya(props) {
           <Card.Text>{props.adat.leiras}</Card.Text>
           <Card.Text>Ár: {props.adat.ar} Ft</Card.Text>
           <Card.Text>
-            Elérhető: {props.adat.db > 0 ? props.adat.db : "0"} db //Ha a termék készlete (db) pozitív, hozzáadja azt a kosárhoz
+            Elérhető: {props.adat.db > 0 ? props.adat.db : "0"} db // Ellenörzi, hogy a kosár nagyobb-e mint nulla, ha nem akkor kiírja hogy 0
 
           </Card.Text>
           <Button
