@@ -14,8 +14,9 @@ export default function Kosar() {
             <Col key={termek.id} xs={12} md={6} lg={4} className="mb-3">
               <Card className="h-100 shadow-sm">
                 <Card.Body className="d-flex flex-column">
-                  <Card.Title>{termek.title}</Card.Title>
-                  <Card.Text>Ár: {termek.price} Ft</Card.Text>
+                  <Card.Title>{termek.cim}</Card.Title>
+                  <Card.Text>{termek.leiras}</Card.Text>
+                  <Card.Text>Ár: {termek.ar} Ft</Card.Text>
                   <Card.Text>Darabszám: {termek.db}</Card.Text>
                 </Card.Body>
               </Card>
