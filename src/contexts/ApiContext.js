@@ -18,7 +18,7 @@ export const ApiProvider=({children})=>{
 
         }
     };
-    const deleteAdat = async (vegpont,id)=>{
+    /*const deleteAdat = async (vegpont,id)=>{
         try{
             const response = await myAxios.delete(vegpont+"/"+id);
             console.log(response)
@@ -28,18 +28,22 @@ export const ApiProvider=({children})=>{
         }finally{
 
         }
-    };
-
+    }; /// Nem müködik*/
     const putAdat = async (vegpont, id, adat) => {
         try {
-          const response = await myAxios.put(`${vegpont}/${id}`, adat);
-          console.log("Frissített adat:", response.data);
-        } catch (err) {
-          console.log("Hiba történt az adatok módosításakor.", err);
-        }
-      };
+            const response = await myAxios.put(`${vegpont}/${id}`, adat);
+            console.log("Sikeres módosítás:", response.data);
     
-
+            // Frissítjük a termékek listáját a válasz alapján
+            setTermekLista((prevTermekLista) =>
+                prevTermekLista.map((item) =>
+                    item.id === id ? { ...item, ...adat } : item
+                )
+            );
+        } catch (err) {
+            console.error("Hiba történt az adatok módosításakor:", err);
+        }
+    };
     const postAdat = async (vegpont, adat)=>{
         try{
             const response = await myAxios.post(vegpont, adat);
@@ -54,7 +58,7 @@ export const ApiProvider=({children})=>{
         getAdat("/api/termekek",setTermekLista)
     },[]);
     return(
-        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, putAdat, katLista}}>
+        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista, setKatLista,putAdat }}>
             {children}
         </ApiContext.Provider>
     );

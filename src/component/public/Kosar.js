@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Card } from "react-bootstrap";
 import { KosarContext } from "../../contexts/KosarContext";
 
 export default function Kosar() {

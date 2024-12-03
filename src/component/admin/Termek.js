@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { ApiContext } from '../../contexts/ApiContext';
-import { KosarContext } from '../../contexts/KosarContext';
 import { Button } from 'react-bootstrap';
 
 export default function Termek(props) {
@@ -13,8 +12,6 @@ export default function Termek(props) {
     setTermekLista(listaFrissitese); 
   };
 
-  // Kosárba rakás funkció
-  const {kosarba} = useContext(KosarContext);
 
   // Szerkesztés funkció
   const [szerkesztes, setSzerkesztes] = useState(false);
@@ -51,9 +48,6 @@ export default function Termek(props) {
     }));
   };
 
-  function kattintas() {
-    kosarba(props.adat);
-  }
 
   return (
     <tr>
