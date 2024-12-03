@@ -15,9 +15,6 @@ const Layout = () => {
                 <Nav.Item>
                     <Nav.Link href="/admin" className="nav-link-black">Admin</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/urlap" className="nav-link-black">Urlap</Nav.Link>
-                </Nav.Item>
             </Nav>
             <article>
                 {/* Ide kerül majd az útvonalak/linkek által meghatározott tartalom */}
