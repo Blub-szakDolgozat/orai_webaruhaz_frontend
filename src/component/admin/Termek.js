@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 export default function Termek(props) {
 
-  const { termekLista, setTermekLista } = useContext(ApiContext);
+  const { termekLista, setTermekLista, putAdat } = useContext(ApiContext);
 
   // Törlés funkció
   const torles = () => {
@@ -16,21 +16,25 @@ export default function Termek(props) {
   // Szerkesztés funkció
   const [szerkesztes, setSzerkesztes] = useState(false);
   const [szerkesztTermek, setSzerkesztTermek] = useState(props.adat);
-  const { putAdat } = useContext(ApiContext);
 
   const szerkesztGomb = () => {
     setSzerkesztes(true);
   };
 
-  const szerkesztesMentese = () => {
-    putAdat("/api/termekek", szerkesztTermek.id, szerkesztTermek);
-  
-    const szerkesztettLista = termekLista.map(item =>
-      item.id === szerkesztTermek.id ? szerkesztTermek : item
-    );
-    setTermekLista(szerkesztettLista);
-    setSzerkesztes(false);
-  };
+  const szerkesztesMentese = async () => {
+    try {
+        await putAdat('/api/termekek', szerkesztTermek.id, szerkesztTermek);
+        const szerkesztettLista = termekLista.map(item =>
+            item.id === szerkesztTermek.id ? szerkesztTermek : item
+        );
+        setTermekLista(szerkesztettLista);
+        setSzerkesztes(false);
+    } catch (error) {
+        console.error("Hiba történt a szerkesztett termék mentésekor:", error);
+        alert("Hiba történt a mentés során!");
+    }
+};
+
 
   const szerkesztesValtoztatasa = (elem) => {
     const { name, value } = elem.target;

@@ -26,7 +26,7 @@ export default function UrlapPublic(){
         // Összegyűjtük az adatokat az űrlap mezőről és összeállítunk egy objektumot. Ezt az objektumot küldük el a post kéréssel a végpontra.
         console.log("Elküld")
         // Itt kellene validálni az adatokat és csak akkor elküldeni, ha formailag helyes:
-        postAdat("/products", adat)
+        postAdat('/api/termekAdd', adat);
     }
 
     return (
@@ -69,15 +69,7 @@ export default function UrlapPublic(){
 
           
     
-            <Form.Group className="mb-3" controlId="image">
-              <Form.Label>A termék képe (URL)</Form.Label>
-              <Form.Control
-                type="text"
-                value={adat.image}
-                onChange={valtoztatasKezeles}
-                placeholder="Kép URL"
-              />
-            </Form.Group>
+
     
             <div className="d-flex justify-content-center">
   <Button variant="primary" type="submit" size="sm">

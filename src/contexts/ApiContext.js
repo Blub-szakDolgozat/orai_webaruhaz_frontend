@@ -18,7 +18,7 @@ export const ApiProvider=({children})=>{
 
         }
     };
-    /*const deleteAdat = async (vegpont,id)=>{
+    const deleteAdat = async (vegpont,id)=>{
         try{
             const response = await myAxios.delete(vegpont+"/"+id);
             console.log(response)
@@ -28,7 +28,7 @@ export const ApiProvider=({children})=>{
         }finally{
 
         }
-    }; /// Nem müködik*/
+    }; 
     const putAdat = async (vegpont, id, adat) => {
         try {
             const response = await myAxios.put(`${vegpont}/${id}`, adat);
@@ -44,21 +44,23 @@ export const ApiProvider=({children})=>{
             console.error("Hiba történt az adatok módosításakor:", err);
         }
     };
-    const postAdat = async (vegpont, adat)=>{
-        try{
-            const response = await myAxios.post(vegpont, adat);
-            console.log(response)
-        }catch(err){
-            console.log("Hiba történt az adatok küldésekor.")
-        }finally{
 
+       const postAdat = async (endpoint, data) => {
+        try {
+            const response = await myAxios.post(endpoint, data);
+            console.log("Feltöltve", response.data);
+            return response.data;
+        } catch (error) {
+            console.error("POST hiba:", error);
+            throw error;
         }
     };
+
     useEffect(()=>{
         getAdat("/api/termekek",setTermekLista)
     },[]);
     return(
-        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista, setKatLista,putAdat }}>
+        <ApiContext.Provider value={{termekLista, setTermekLista, postAdat, katLista, setKatLista,putAdat, deleteAdat }}>
             {children}
         </ApiContext.Provider>
     );
