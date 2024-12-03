@@ -10,7 +10,7 @@ export default function Admin() {
     <div>
       <main>
         <aside>
-            <UrlapPublic/>
+            <UrlapPublic />
         </aside>
       <article>        
           <Termekek termekLista={termekLista}/>

@@ -11,7 +11,6 @@ export default function UrlapPublic(){
         ar: '',
         category: '',
         leiras: '',
-        image:''
     })
 
     function valtoztatasKezeles(event){
