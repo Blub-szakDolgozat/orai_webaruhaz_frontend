@@ -9,15 +9,14 @@ export default function UrlapPublic(){
     const [adat, setAdat]=useState({
         cim: "Ez a termék neve",
         ar: '',
-        category: '',
         leiras: '',
+        db:'',
     })
 
     function valtoztatasKezeles(event){
         // Az inputba beírt adatokkal kell frissíteni az objektumunkat
-        const sObj={...adat}
-        sObj[event.target.id]=event.target.value
-        setAdat({...sObj})
+        const sObj = { ...adat, [event.target.id]: event.target.value };
+        setAdat(sObj);
     }
 
     function elkuld(event){
@@ -66,6 +65,17 @@ export default function UrlapPublic(){
               />
             </Form.Group>
 
+            <Form.Group className="mb-3" controlId="db">
+              <Form.Label>Termék darab</Form.Label>
+              <Form.Control
+                type="number"
+                min="1"
+                max="10000"
+                value={adat.db}
+                onChange={valtoztatasKezeles}
+                placeholder="Adja meg hány darab van"
+              />
+            </Form.Group>
           
     
 
